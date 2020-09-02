@@ -70,17 +70,17 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
             {
                "label":"Check this",
                "props":{
-                    "name":"checker_1",
-                    "value":"Checker1",
-                    "defaultChecked":"checked"
-                }
+                  "name":"checker_1",
+                  "value":"Checker1",
+                  "defaultChecked":"checked"
+               }
             },
             {
                "label":"And/or this",
                "props":{
-                    "name":"checker_2",
-                    "value":"Checker2"
-                }
+                  "name":"checker_2",
+                  "value":"Checker2"
+               }
             }
          ],
          "props":{
@@ -94,17 +94,17 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
             {
                "label":"Male",
                "props":{
-                    "name":"gender",
-                    "value":"male",
-                    "defaultChecked":"checked"
-                }
+                  "name":"gender",
+                  "value":"male",
+                  "defaultChecked":"checked"
+               }
             },
             {
                "label":"Female",
                "props":{
-                   "name":"gender",
-                   "value":"female"            
-                }
+                  "name":"gender",
+                  "value":"female"
+               }
             }
          ]
       },
@@ -112,7 +112,7 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "type":"textarea",
          "props":{
             "name":"multiline",
-            "cols":"50",
+            "cols":"50"
          }
       },
       {
