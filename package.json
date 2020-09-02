@@ -7,7 +7,7 @@
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "start": "parcel -p 8888 src/index.html --open",
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir dist --no-cache --no-source-maps"
+    "build": "parcel build src/index.html --out-dir dist --no-cache --no-source-maps --public-url ./"
   },
   "author": "Bachin",
   "license": "ISC",
