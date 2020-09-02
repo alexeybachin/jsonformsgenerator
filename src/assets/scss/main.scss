@@ -27,14 +27,14 @@ input[type="file"] {
   display: none;
 }
 
-.app-spacer {
+*[class*="app-spacer"] {
   position: relative;
   display: block;
   overflow: hidden;
   width: 100%;
 }
 
-.app-spacer.app-spacer-32 {
+.app-spacer-32 {
   height: 32px;
 }
 
@@ -68,33 +68,116 @@ input[type="file"] {
   text-align: center;
 }
 
-.app-control {
-  display: block;
-
-  .app-button {
-    display: inline-block;
-    border: none;
-    height: 50px;
-    border-radius: 2px;
-    line-height: 50px;
-    letter-spacing: 0.4px;
+form {
+  label,
+  .app-control__group-title {
+    display: block;
+    padding-right: 16px;
+    line-height: 34px;
     font-size: calc(11px + (14 - 11) * ((100vw - 320px)/ (1920 - 320)));
-    text-align: center;
-    padding: 0 16px;
-    cursor: pointer;
     font-weight: 700;
-    color: $mainButtonColor;
-    background: $mainButtonBgColor;
-    box-shadow: 0 3px 11px rgba(0,0,0,0.0);
-    transition: color 0.25s ease-in, background 0.25s ease-in, box-shadow 0.25s ease-in;
+    min-width: 100px;
   }
 
-  .app-button:hover {
-    color: $mainButtonColorHover;
-    background: $mainButtonBgColorHover;
-    box-shadow: 0 3px 11px rgba(0,0,0,0.33);
+  .app-control__group {
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+
   }
 
+  .app-control-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-direction: row;
+    margin: 16px 0;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      display: block;
+      border-radius: 4px;
+      background: #FFFFFF;
+      border: 2px solid #282829;
+      height: 32px;
+      line-height: 33px;
+      text-indent: 4px;
+      font-size: calc(11px + (14 - 11) * ((100vw - 320px)/ (1920 - 320)));
+      letter-spacing: 0.4px;
+      font-weight: 400;
+      width: 240px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type="date"],
+    select {
+      cursor: pointer;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 1px 8px rgba(0, 182, 254, 0.33);
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      cursor: pointer;
+      margin-top: -1px;
+    }
+
+    textarea {
+      resize: none;
+      height: 200px;
+    }
+
+    button {
+      display: inline-block;
+      border: none;
+      height: 50px;
+      min-width: 120px;
+      border-radius: 2px;
+      line-height: 50px;
+      letter-spacing: 0.4px;
+      font-size: calc(11px + (14 - 11) * ((100vw - 320px)/ (1920 - 320)));
+      text-align: center;
+      padding: 0 16px;
+      cursor: pointer;
+      font-weight: 700;
+      color: $mainButtonColor;
+      background: $mainButtonBgColor;
+      box-shadow: 0 3px 11px rgba(0,0,0,0.0);
+      transition: color 0.25s ease-in, background 0.25s ease-in, box-shadow 0.25s ease-in;
+    }
+
+    button:hover,
+    button:hover:focus {
+      color: $mainButtonColorHover;
+      background: $mainButtonBgColorHover;
+      box-shadow: 0 3px 11px rgba(0,0,0,0.33);
+    }
+
+    button:focus {
+      border: none;
+      outline: none;
+      box-shadow: 0 1px 8px rgba(0, 182, 254, 0.33);
+    }
+
+  }
+
+  .app-control-wrapper.app-control-wrapper--inline {
+    display: inline-block;
+    margin-right: 8px;
+  }
 }
 
 .app-message {

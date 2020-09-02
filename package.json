@@ -5,16 +5,21 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "start": "parcel -p 8888 src/index.html",
+    "start": "parcel -p 8888 src/index.html --open",
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir dist --no-cache"
+    "build": "parcel build src/index.html --out-dir dist --no-cache --no-source-maps"
   },
   "author": "Bachin",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeybachin/jsonformsgenerator.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.8.6",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.7.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",

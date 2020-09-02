@@ -5,3 +5,4 @@ Runs on Parcel with React
 
 1. 'npm install'
 2. 'npm run start'
+3. localhost:8888
