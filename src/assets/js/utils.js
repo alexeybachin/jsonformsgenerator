@@ -23,3 +23,17 @@ export const formattedDate = ( date ) => {
 
     return [ year, month, day ].join( '-' );
 }
+
+/**
+ * Checks if given string is valid JSON
+ * @param str
+ * @returns {boolean}
+ */
+export const isJSON = ( str ) => {
+    try {
+        JSON.parse( str );
+    } catch ( e ) {
+        return false;
+    }
+    return true;
+}

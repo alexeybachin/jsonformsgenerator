@@ -6,11 +6,8 @@ $mainButtonColor: #FFFFFF;
 $mainButtonBgColor: #282829;
 $mainButtonBgColorHover: $mainButtonColor;
 $mainButtonColorHover: $mainButtonBgColor;
-$msgSuccessBg: #DFF2BF;
-$msgSuccessColor: #4F8A10;
-$msgErrorBg: #FFBABA;
-$msgErrorColor: #D8000C;
-$overlayTransparentColor: rgba(0,0,0,0.75);
+$successColor: #4f8a10;
+$errorColor: #d8000c;
 
 *, *::before, *::after {
   margin: 0;
@@ -25,6 +22,14 @@ body {
 
 input[type="file"] {
   display: none;
+}
+
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+::placeholder {
+  font-weight: 400;
+  font-size: calc(11px + (13 - 11) * ((100vw - 320px)/ (1920 - 320)));
+  color: #979797;
 }
 
 *[class*="app-spacer"] {
@@ -85,14 +90,11 @@ form {
       flex-direction: row;
       align-items: center;
     }
-
-
   }
 
   .app-control-wrapper {
     display: flex;
     align-items: center;
-    text-align: left;
     flex-direction: row;
     margin: 16px 0;
 
@@ -159,11 +161,33 @@ form {
       transition: color 0.25s ease-in, background 0.25s ease-in, box-shadow 0.25s ease-in;
     }
 
+    button.app-button__success {
+      background: $successColor;
+    }
+
+    button.app-button__cancel {
+      background: $errorColor;
+    }
+
     button:hover,
     button:hover:focus {
       color: $mainButtonColorHover;
       background: $mainButtonBgColorHover;
       box-shadow: 0 3px 11px rgba(0,0,0,0.33);
+    }
+
+    button.app-button__success:hover,
+    button.app-button__success:hover:focus {
+      color: $successColor;
+      background: $mainButtonBgColorHover;
+      box-shadow: 0 3px 11px rgba(79,138,16,0.33);
+    }
+
+    button.app-button__cancel:hover,
+    button.app-button__cancel:hover:focus {
+      color: $errorColor;
+      background: $mainButtonBgColorHover;
+      box-shadow: 0 3px 11px rgba(216,0,12,0.33);
     }
 
     button:focus {
@@ -176,160 +200,34 @@ form {
 
   .app-control-wrapper.app-control-wrapper--inline {
     display: inline-block;
-    margin-right: 8px;
+  }
+
+  .app-control-wrapper.app-control-wrapper--inline ~ .app-control-wrapper.app-control-wrapper--inline {
+    margin-left: 8px;
   }
 }
 
-.app-message {
-  display: block;
-  position: fixed;
-  width: 320px;
-  height: 48px;
-  text-align: center;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%);
-  line-height: 48px;
-  border-radius: 4px;
-  box-shadow: 0 3px 11px rgba(0,0,0,0.15);
-  font-size: calc(11px + (13 - 11) * ((100vw - 320px)/ (1920 - 320)));
-  font-weight: 100;
-  color: #FFFFFF;
-  transition: opacity 0.25s ease-in-out;
-  opacity: 0;
-  z-index: 999;
-  cursor: pointer;
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 0 -50px;
 }
 
-.app-message.active {
-  opacity: 1;
+.input {
+  border-right: 2px solid #282829;
+  text-align: right;
+
+  form textarea {
+    width: 100%;
+  }
 }
 
-.app-message.app-message--error {
-  background: $msgErrorBg;
-  color: $msgErrorColor;
-}
-
-.app-message.app-message--success {
-  background: $msgSuccessBg;
-  color: $msgSuccessColor;
-}
-
-.app-image-preview {
-  position: fixed;
-  display: block;
-  background: $overlayTransparentColor;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-
-  .app-image-preview__close-button {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-  }
-
-  .app-image-preview__close-button::before, .app-image-preview__close-button::after {
-    position: absolute;
-    display: block;
-    content: "";
-    width: 2px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    margin-top: -8px;
-    margin-left: -1px;
-    background: #FFFFFF;
-  }
-
-  .app-image-preview__close-button::before {
-    transform: rotate(-45deg);
-  }
-
-  .app-image-preview__close-button::after {
-    transform: rotate(45deg);
-  }
-
-  .app-image-container {
-    position: absolute;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 64px);
-    width: calc(100vw - 64px);
-    top: 32px;
-    left: 32px;
-    border-radius: 4px;
-    background: #121218;
-    text-align: center;
-  }
-
-  img {
-    display: inline-block;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .app-image-overlay {
-    position: absolute;
-    pointer-events: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-
-  .app-image-marker {
-    color: $mainColor;
-    font-weight: 100;
-    text-align: left;
-    text-indent: 8px;
-    padding-right: 16px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: block;
-    position: absolute;
-    border-radius: 4px;
-    background: #FFFFFF;
-    box-shadow: 0 3px 11px rgba(0,0,0,0.33);
-    height: 24px;
-    line-height: 24px;
-    width: 120px;
-    font-size: calc(11px + (13 - 11) * ((100vw - 320px)/ (1920 - 320)));
-    pointer-events: all;
-    z-index: 999;
-
-    input {
-      display: block;
-      border: none;
-      width: 100%;
-      height: 100%;
-      line-height: 24px;
-      font-size: calc(11px + (13 - 11) * ((100vw - 320px)/ (1920 - 320)));
-      font-weight: 100;
-      text-indent: 8px;
-      outline: 0;
-      color: $mainColor;
-    }
-
-    ::-webkit-input-placeholder,
-    :-ms-input-placeholder,
-    ::placeholder {
-      font-style: italic;
-      font-weight: 100;
-      font-size: calc(11px + (13 - 11) * ((100vw - 320px)/ (1920 - 320)));
-      color: #979797;
-    }
-  }
+.input,
+.output {
+  width: 50%;
+  overflow: hidden;
+  padding: 0 50px;
 }
 
 

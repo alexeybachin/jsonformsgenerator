@@ -3,4 +3,5 @@
 .git
 dist
 node_modules
+builder.bat
 launcher.bat
