@@ -11,30 +11,14 @@ const FormComponent = ( props ) => {
 
     const component = props.component;
 
-    let item = (<div className="app-control-wrapper" />); //let's not leave it empty
+    let item;
 
     switch ( component.type ) {
-        case 'text':
-            item = (
-                <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <input type={component.type}
-                           name={component.props.name}
-                           placeholder = {component.props.placeholder || undefined}
-                           defaultValue={component.props.value || undefined}
-                           id ={component.props.id}
-                           className={component.props.customCSSClass || undefined}
-                    />
-                </div>
-            );
-            break;
         case 'select':
             item = (
                 <div className="app-control-wrapper">
                     {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <select name={component.props.name}
-                            id={component.props.id}
-                            className={component.props.customCSSClass || undefined}>
+                    <select {...component.props} >
                         {component.options.map(option => (
                             <option key={option.value} defaultValue={option.value}>
                                 {option.text}
@@ -48,45 +32,7 @@ const FormComponent = ( props ) => {
             item = (
                 <div className="app-control-wrapper">
                     {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <textarea name={component.props.name}
-                              defaultValue={component.props.value || undefined}
-                              placeholder={component.props.placeholder || undefined}
-                              className={component.props.customCSSClass || undefined}
-                              id ={component.props.id}
-                    />
-                </div>
-            );
-            break;
-        case 'number':
-            item = (
-                <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <input type={component.type}
-                           name={component.props.name}
-                           defaultValue={component.props.value || undefined}
-                           placeholder={component.props.placeholder || undefined}
-                           min={component.props.min || undefined}
-                           max={component.props.max || undefined}
-                           step={component.props.step || undefined}
-                           className={component.props.customCSSClass || undefined}
-                           id ={component.props.id}
-                    />
-                </div>
-            );
-            break;
-        case 'date':
-            item = (
-                <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <input type={component.type}
-                           name={component.props.name}
-                           defaultValue={component.props.value || undefined}
-                           placeholder={component.props.placeholder || undefined}
-                           min={component.props.min || undefined}
-                           max={component.props.max || undefined}
-                           className={component.props.customCSSClass || undefined}
-                           id ={component.props.id}
-                    />
+                    <textarea {...component.props} />
                 </div>
             );
             break;
@@ -98,14 +44,11 @@ const FormComponent = ( props ) => {
                         {component.items.map( item => {
                             let id = utils.ID();
                             return (
-                                <div key={item.value}>
+                                <div key={item.props.value}>
                                     {item.label ? (<label htmlFor={id}>{item.label}</label>) : ""}
                                     <input type={component.type}
-                                           name={item.name}
-                                           defaultValue={item.value || undefined}
-                                           defaultChecked={item.checked || ""}
-                                           className={component.props.customCSSClass || undefined}
-                                           id ={id}
+                                           {...item.props}
+                                           id = {id}
                                     />
                                 </div>
                             );
@@ -122,14 +65,11 @@ const FormComponent = ( props ) => {
                         {component.items.map( item => {
                             let id = utils.ID();
                             return (
-                                <div key={item.value}>
+                                <div key={item.props.value}>
                                     {item.label ? (<label htmlFor={id}>{item.label}</label>) : ""}
                                     <input type={component.type}
-                                           name={item.name}
-                                           defaultValue={item.value || undefined}
-                                           defaultChecked={item.checked || ""}
-                                           className={component.props.customCSSClass || undefined}
-                                           id ={id}
+                                           {...item.props}
+                                           id = {id}
                                     />
                                 </div>
                             );
@@ -142,10 +82,18 @@ const FormComponent = ( props ) => {
             item = (
                 <div className="app-control-wrapper app-control-wrapper--inline">
                     <button type={component.props.type}
-                           name={component.props.name}
-                           className={component.props.customCSSClass || undefined}
-                           id ={component.props.id}
+                            {...component.props}
                     >{component.props.text}</button>
+                </div>
+            );
+            break;
+        default:
+            item = (
+                <div className="app-control-wrapper">
+                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
+                    <input type={component.type}
+                           {...component.props}
+                    />
                 </div>
             );
             break;

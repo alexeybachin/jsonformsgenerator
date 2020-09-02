@@ -9,7 +9,7 @@ const App = () => {
 
     const initialState = {
         title: "Form title",
-        customCSSClass: "some-class",
+        className: "some-class",
         items: [
             {
                 type: "text",
@@ -20,11 +20,12 @@ const App = () => {
                 }
             },
             {
-                type: "text",
+                type: "email",
                 props: {
                     label: "Email",
                     name: "email",
-                    customCSSClass: "lol-class"
+                    className: "multiple classes are accepted",
+                    placeholder: "Email"
                 }
             },
             {
@@ -32,11 +33,11 @@ const App = () => {
                 props: {
                     label: "Count",
                     name: "count",
-                    value: "1",
+                    defaultValue: "1",
                     min: "0",
                     max: "100",
                     step: "2",
-                    customCSSClass: "its-wednesday-my-dudes"
+                    className: "its-wednesday-my-dudes"
                 }
             },
             {
@@ -44,7 +45,7 @@ const App = () => {
                 props: {
                     label: "Date of birth",
                     name: "dateOfBirth",
-                    value: utils.formattedDate( new Date() ),
+                    defaultValue: utils.formattedDate( new Date() ),
                     min: "",
                     max: ""
                 }
@@ -72,14 +73,18 @@ const App = () => {
                 items: [
                     {
                         label: "Check this",
-                        name: "checker_1",
-                        value: "Checker1",
-                        checked: "checked"
+                        props: {
+                            name: "checker_1",
+                            value: "Checker1",
+                            defaultChecked: "checked"
+                        }
                     },
                     {
                         label: "Or this",
-                        name: "checker_2",
-                        value: "Checker2",
+                        props: {
+                            name: "checker_2",
+                            value: "Checker2"
+                        }
                     }
                 ]
             },
@@ -89,24 +94,27 @@ const App = () => {
                 items: [
                     {
                         label: "Male",
-                        name: "gender",
-                        value: "male",
-                        checked: "checked"
+                        props: {
+                            name: "gender",
+                            value: "male",
+                            defaultChecked: "checked"
+                        }
                     },
                     {
                         label: "Female",
-                        name: "gender",
-                        value: "female",
+                        props: {
+                            name: "gender",
+                            value: "female"
+                        }
                     },
                     {
                         label: "Non-binary",
-                        name: "gender",
-                        value: "nonb",
+                        props: {
+                            name: "gender",
+                            value: "nonb"
+                        }
                     }
-                ],
-                props: {
-                    customCSSClass: "this-is-class"
-                }
+                ]
             },
             {
                 type: "textarea",
@@ -120,7 +128,7 @@ const App = () => {
                     type: "submit",
                     name: "submit",
                     text: "Bang!",
-                    customCSSClass: "app-button__success"
+                    className: "app-button__success"
                 }
             },
             {
@@ -129,7 +137,7 @@ const App = () => {
                     type: "reset",
                     name: "reset",
                     text: "Reset!",
-                    customCSSClass: "app-button__cancel"
+                    className: "app-button__cancel"
                 }
             }
         ]

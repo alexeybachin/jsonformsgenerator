@@ -30,7 +30,7 @@ const Form = ( props ) => {
         return (
             <div className="app-form-wrapper">
                 {state.title ? <h3>{state.title}</h3> : "" }
-                <form onChange={handleChange} onSubmit={handleSubmit} className={state.customCSSClass ? state.customCSSClass : ""}>
+                <form onChange={handleChange} onSubmit={handleSubmit} className={state.className ? state.className : ""}>
                     {state.items ? state.items.map( component => {
                         let id = utils.ID();
                         component.props ? component.props.id = id : component.props = {id: id};

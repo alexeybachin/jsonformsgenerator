@@ -13,8 +13,8 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
 
 ```` json
 {
-   "title":"...",
-   "customCSSClass":"...",
+   "title":"I am a form!",
+   "className":"this-is-class",
    "items":[
       {
          "type":"text",
@@ -29,11 +29,11 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "props":{
             "label":"Count",
             "name":"count",
-            "value":"1",
+            "defaultValue":"2",
             "min":"0",
             "max":"100",
             "step":"2",
-            "customCSSClass":"its-wednesday-my-dudes"
+            "className":"multiple classes are accepted"
          }
       },
       {
@@ -41,7 +41,7 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "props":{
             "label":"Date of birth",
             "name":"dateOfBirth",
-            "value":"2020-08-31",
+            "defaultValue":"2020-08-31",
             "min":"",
             "max":""
          }
@@ -69,18 +69,22 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "items":[
             {
                "label":"Check this",
-               "name":"checker_1",
-               "value":"Checker1",
-               "checked":"checked"
+               "props":{
+                    "name":"checker_1",
+                    "value":"Checker1",
+                    "defaultChecked":"checked"
+                }
             },
             {
                "label":"And/or this",
-               "name":"checker_2",
-               "value":"Checker2"
+               "props":{
+                    "name":"checker_2",
+                    "value":"Checker2"
+                }
             }
          ],
          "props":{
-            "customCSSClass":"this-is-class"
+            "className":"this-is-class"
          }
       },
       {
@@ -89,29 +93,25 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "items":[
             {
                "label":"Male",
-               "name":"gender",
-               "value":"male",
-               "checked":"checked"
+               "props":{
+                    "name":"gender",
+                    "value":"male",
+                    "defaultChecked":"checked"
+                }
             },
             {
                "label":"Female",
-               "name":"gender",
-               "value":"female"
-            },
-            {
-               "label":"Non-binary",
-               "name":"gender",
-               "value":"nonb"
+               "props":{
+                   "name":"gender",
+                   "value":"female              }
             }
-         ],
-         "props":{
-            "customCSSClass":"this-is-class"
-         }
+         ]
       },
       {
          "type":"textarea",
          "props":{
-            "name":"multiline"
+            "name":"multiline",
+            ""
          }
       },
       {
@@ -120,7 +120,7 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
             "type":"submit",
             "name":"submit",
             "text":"Bang!",
-            "customCSSClass":"app-button__success"
+            "className":"app-button__success"
          }
       },
       {
@@ -129,7 +129,7 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
             "type":"reset",
             "name":"reset",
             "text":"Reset!",
-            "customCSSClass":"app-button__cancel"
+            "className":"app-button__cancel"
          }
       }
    ]
