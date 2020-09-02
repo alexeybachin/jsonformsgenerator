@@ -9,7 +9,7 @@ Runs on Parcel with React
 
 #### JSON schema example
 
-Input must me valid JSON string. At this point I haven't implemented JSON validation.
+Input must be valid JSON string. At this point I haven't implemented JSON validation.
 
 ```` json
 {
