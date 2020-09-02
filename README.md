@@ -103,7 +103,8 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
                "label":"Female",
                "props":{
                    "name":"gender",
-                   "value":"female              }
+                   "value":"female              
+                }
             }
          ]
       },
@@ -111,7 +112,7 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
          "type":"textarea",
          "props":{
             "name":"multiline",
-            ""
+            "cols":"50",
          }
       },
       {
