@@ -3,6 +3,8 @@
 
 Runs on Parcel with React. While there are plenty of libraries and npm packages for JSON form generation, I opted for creating one from scratch, with possibility of adding features later.
 
+Regarding the task itself, I  chose not to use tabs, as it would mean an extra click to switch between them, which is not an optimal UX. Split screen works better here, in my opinion.
+
 Read this readme first.
 
 1. 'npm install'
