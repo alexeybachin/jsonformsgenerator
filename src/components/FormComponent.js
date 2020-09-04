@@ -20,7 +20,7 @@ const FormComponent = ( props ) => {
                     {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
                     <select {...component.props} >
                         {component.options.map(option => (
-                            <option key={option.value} defaultValue={option.value}>
+                            <option key={option.value} value={option.value}>
                                 {option.text}
                             </option>
                         ))}

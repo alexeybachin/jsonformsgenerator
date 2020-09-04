@@ -1,7 +1,9 @@
-# JSON Forms Generator
+# JSON Forms Generator (veeam task)
 #### An app that generates a form from given JSON schema
 
-Runs on Parcel with React
+Runs on Parcel with React. While there are plenty of libraries and npm packages for JSON form generation, I opted for creating one from scratch, with possibility of adding features later.
+
+Read this readme first.
 
 1. 'npm install'
 2. 'npm run start'
@@ -140,4 +142,5 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
 #### TODO
 
 1. Implement JSON validation
-2. Option to read JSON from file
+2. Add option to read JSON from file
+3. Add Props type checking and allowed props

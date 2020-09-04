@@ -119,7 +119,8 @@ const App = () => {
             {
                 type: "textarea",
                 props: {
-                    name: "essay"
+                    name: "essay",
+                    cols: "50"
                 }
             },
             {
