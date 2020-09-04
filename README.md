@@ -11,7 +11,7 @@ Read this readme first.
 
 #### JSON schema example
 
-Input must be valid JSON string. At this point I haven't implemented JSON validation.
+Input must be valid JSON string. If no type is specified, the app will default to ````[type="text"]````. I decided on the following data structure:
 
 ```` json
 {
@@ -20,16 +20,16 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
    "items":[
       {
          "type":"text",
+         "label":"Name",
          "props":{
-            "label":"Name",
             "name":"name",
             "placeholder":"Name"
          }
       },
       {
          "type":"number",
+         "label":"Count",
          "props":{
-            "label":"Count",
             "name":"count",
             "defaultValue":"2",
             "min":"0",
@@ -40,8 +40,8 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
       },
       {
          "type":"date",
+         "label":"Date of birth",
          "props":{
-            "label":"Date of birth",
             "name":"dateOfBirth",
             "defaultValue":"2020-08-31",
             "min":"",
@@ -50,8 +50,8 @@ Input must be valid JSON string. At this point I haven't implemented JSON valida
       },
       {
          "type":"select",
+         "label":"Country",
          "props":{
-            "label":"Country",
             "name":"country"
          },
          "options":[

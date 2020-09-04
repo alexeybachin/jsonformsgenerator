@@ -11,13 +11,14 @@ const FormComponent = ( props ) => {
 
     const component = props.component;
 
-    let item;
+    let item,
+        type = component.type ? component.type : "text";
 
-    switch ( component.type ) {
+    switch ( type ) {
         case 'select':
             item = (
                 <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
+                    {component.label ? <label htmlFor={component.props.id}>{component.label}</label> : ""}
                     <select {...component.props} >
                         {component.options.map(option => (
                             <option key={option.value} value={option.value}>
@@ -31,7 +32,7 @@ const FormComponent = ( props ) => {
         case 'textarea':
             item = (
                 <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
+                    {component.label ? <label htmlFor={component.props.id}>{component.label}</label> : ""}
                     <textarea {...component.props} />
                 </div>
             );
@@ -90,8 +91,8 @@ const FormComponent = ( props ) => {
         default:
             item = (
                 <div className="app-control-wrapper">
-                    {component.props.label ? <label htmlFor={component.props.id}>{component.props.label}</label> : ""}
-                    <input type={component.type}
+                    {component.label ? <label htmlFor={component.props.id}>{component.label}</label> : ""}
+                    <input type={type}
                            {...component.props}
                     />
                 </div>

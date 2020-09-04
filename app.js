@@ -13,16 +13,16 @@ const App = () => {
         items: [
             {
                 type: "text",
+                label: "Name",
                 props : {
-                    label: "Name",
                     name: "name",
                     placeholder: "Name"
                 }
             },
             {
                 type: "email",
+                label: "Email",
                 props: {
-                    label: "Email",
                     name: "email",
                     className: "multiple classes are accepted",
                     placeholder: "Email"
@@ -30,8 +30,8 @@ const App = () => {
             },
             {
                 type: "number",
+                label: "Count",
                 props: {
-                    label: "Count",
                     name: "count",
                     defaultValue: "1",
                     min: "0",
@@ -42,8 +42,8 @@ const App = () => {
             },
             {
                 type: "date",
+                label: "Date of birth",
                 props: {
-                    label: "Date of birth",
                     name: "dateOfBirth",
                     defaultValue: utils.formattedDate( new Date() ),
                     min: "",
@@ -52,8 +52,8 @@ const App = () => {
             },
             {
                 type: "select",
+                label: "Country",
                 props: {
-                    label: "Country",
                     name: "country",
                 },
                 options: [
